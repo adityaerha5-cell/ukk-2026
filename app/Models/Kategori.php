@@ -8,5 +8,5 @@ class Kategori extends Model
 {
     protected static ?string $table = 'kategori';
 
-    protected array $fillable = ['kode_kategori','nama_kategori','keterangan'];
+    protected array $fillable = ['keterangan'];
 }
