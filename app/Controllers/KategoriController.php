@@ -8,8 +8,18 @@ use App\Models\Kategori;
 class KategoriController extends Controller
 {
     public function index(Request $request)
+    
     {
         $kategori = Kategori::paginate(10);
         return view('kategori.index', compact('kategori'));
     }
-}
+    public function create(Request $request)
+    {
+        return view('kategori.create');
+    }
+
+
+
+
+    }
+

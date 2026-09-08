@@ -3,6 +3,8 @@
 @section('title', config('app.name') . ' -- Kerangka PHP Ringan')
 
 @section('content')
+<h1>kategori</h1>
+<a href="{{ route('kategori.create')}}" class ="btn btn-primary">Tambah</a>
 <table class = "table table-sm align-middle">
 <tr>
     <th>No</th>
