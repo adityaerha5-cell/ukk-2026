@@ -7,6 +7,7 @@ use App\Controllers\Core\DocsController;
 use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
 use App\Controllers\KategoriController;
+use App\Controllers\AlatController;
 use Sakuci\Route;
 
 /*
@@ -43,7 +44,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.at
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'admin'])->name('admin.dashboard');
 
     Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles.index');
@@ -63,8 +64,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::put('/kategori/{id_kategori}', [KategoriController::class,'update'])->name('kategori.update');
     Route::delete('/kategori/{id_kategori}', [KategoriController::class,'delete'])->name('kategori.delete');
 
-});
-
+    Route::get('/alat', [AlatController::class, 'index'])->name('alat.index');
+    Route::get('/alat/create', [alatController::class, 'create'])->name('alat.create');
+    Route::post('/alat/store', [alatController::class, 'store'])->name('alat.store');
+    Route::get('/alat/{id_alat}/edit', [alatController::class, 'edit'] )->name('alat.edit');
+    Route::put('/alat/{id_alat}', [alatController::class, 'update'] )->name('alat.update');
+    Route::delete('/alat/{id_alat}', [alatController::class, 'delete'] )->name('alat.delete');
+    });
 /*
 |--------------------------------------------------------------------------
 | Route role dinamis
