@@ -70,6 +70,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
     Route::get('/alat/{id_alat}/edit', [alatController::class, 'edit'] )->name('alat.edit');
     Route::put('/alat/{id_alat}', [alatController::class, 'update'] )->name('alat.update');
     Route::delete('/alat/{id_alat}', [alatController::class, 'delete'] )->name('alat.delete');
+
     });
 /*
 |--------------------------------------------------------------------------
