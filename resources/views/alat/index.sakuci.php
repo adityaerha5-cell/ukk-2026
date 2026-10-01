@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', config('app.name') . ' -- Kerangka PHP Ringan')
@@ -32,8 +33,8 @@
             }
         @endphp
         {{ $namaKategori }}
-    </td>
-    <td>
+        
+
          <a href="{{ route('alat.edit', ['alat' => $alats->id_alat]) }}" class="btn btn-info btn-sm">Edit</a>
          <form action="{{ route('alat.delete', ['id' => $alats->id_alat]) }}" method="POST" style="display: inline-block;">
                             @csrf
