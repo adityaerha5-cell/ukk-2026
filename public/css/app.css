@@ -1,4 +1,4 @@
-﻿/*
+/*
 | Lapisan tema di atas Bootstrap.
 | Bootstrap dimuat lebih dulu, file ini hanya menimpa seperlunya.
 */
@@ -256,3 +256,93 @@ code.inline {
     color: #a5b4fc;
 }
 
+/*
+| Sidebar -- tempel di bagian bawah file CSS tema kamu (setelah Bootstrap).
+| Memakai variabel --brand dan .logo-toggle yang sudah ada di tema.
+*/
+
+/* Sidebar menempel di layar: tetap terlihat walau konten panjang di-scroll */
+#sidebar {
+    width: 280px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: flex-start;
+}
+
+/* Link menu: warna mengikuti tema, aktif memakai warna brand */
+#sidebar .nav-link {
+    color: var(--bs-body-color);
+    font-weight: 500;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+#sidebar .nav-link:hover {
+    background-color: var(--brand-subtle);
+    color: var(--brand-dark);
+}
+
+#sidebar .nav-link.active,
+#sidebar .nav-link.active:hover {
+    background-color: var(--brand);
+    color: #fff;
+    font-weight: 700;
+}
+
+#sidebar .nav-link:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+/* Tema gelap */
+[data-bs-theme="dark"] #sidebar .nav-link:hover {
+    background-color: rgba(194, 65, 12, .18);
+    color: #fb923c;
+}
+
+[data-bs-theme="dark"] #sidebar .nav-link.active,
+[data-bs-theme="dark"] #sidebar .nav-link.active:hover {
+    background-color: var(--brand);
+    color: #fff;
+}
+
+/* Ponsel: sidebar menjadi laci yang meluncur dari kiri */
+#sidebarBackdrop {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1045;
+        max-width: 85vw;
+        transform: translateX(-100%);
+        transition: transform .2s ease;
+    }
+
+    body.sidebar-open #sidebar {
+        transform: none;
+    }
+
+    body.sidebar-open #sidebarBackdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1040;
+        background: rgba(0, 0, 0, .45);
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #sidebar,
+    #sidebar .nav-link {
+        transition: none;
+    }
+}
