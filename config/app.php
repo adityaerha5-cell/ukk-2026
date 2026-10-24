@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'name'     => env('APP_NAME', 'barudak Sakuci'),
+    'name'     => env('APP_NAME', 'Peminjaman Alat Camp online'),
 
     // Saat true, halaman error menampilkan detail lengkap. Matikan di produksi.
     'debug'    => env('APP_DEBUG', true),
@@ -31,6 +31,9 @@ return [
     ],
 
     'middleware' => [
+        'pengguna' => App\Middleware\PenggunaOnly::class,
+        'petugas' => App\Middleware\PetugasOnly::class,
+        'peminjam' => App\Middleware\PeminjamOnly::class,
         'siswa' => App\Middleware\SiswaOnly::class,
         'auth'  => App\Middleware\Authenticate::class,
         'guest' => App\Middleware\RedirectIfAuthenticated::class,

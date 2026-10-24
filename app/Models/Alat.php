@@ -11,8 +11,12 @@ class Alat extends Model
 
     protected array $fillable = [
         'nama_alat',
-        'id_kategori',
         'kode_alat',
-        'keterangan'
+        'id_kategori'
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id_kategori');
+    }
 }
